@@ -1,0 +1,26 @@
+{
+  "name": "take-home-assignment",
+  "version": "1.0.0",
+  "description": "Take home assignment that involves a basic flow on GitHub",
+  "main": "index.js",
+  "scripts": {
+    "test": "cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/L51332/take-home-assignment.git"
+  },
+  "keywords": [
+    "cypress",
+    "testing"
+  ],
+  "author": "Alex L",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/L51332/take-home-assignment/issues"
+  },
+  "homepage": "https://github.com/L51332/take-home-assignment#readme",
+  "devDependencies": {
+    "cypress": "^11.0.1"
+  }
+}
