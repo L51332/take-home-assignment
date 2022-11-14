@@ -32,5 +32,22 @@ describe('GitHub workflows', ()=>{
         });
     });
 
+    it('should show "facebook/create-create-app" as the first result', ()=>{
+        cy.get('ul.repo-list').within(()=>{
+            cy.get('li').eq(0).within(()=>{
+                cy.get('.text-normal').invoke('text').then($text =>{
+                    expect($text).to.contain('facebook/create-react-app');
+                });
+            });
+        });
+    });
+
+    it('should navigate back to the Github landing page', ()=>{
+        cy.visit('https://www.github.com');
+        cy.url().then($url =>{
+            expect($url).to.eql('https://github.com/');
+        })
+    });
+
 
 });
