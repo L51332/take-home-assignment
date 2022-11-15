@@ -15,6 +15,12 @@ describe('GitHub workflows', ()=>{
         cy.get('[data-test-selector="nav-search-input"]').type('create-react-app{enter}');
     });
 
+    it('should show a count of the results', ()=>{
+        cy.get('div.codesearch-results').within(()=>{
+            cy.get('h3').contains('repository results').should('exist');
+        });
+    });
+
     it('should show a list of results', ()=>{
         cy.get('ul.repo-list').should('exist');
         cy.get('ul.repo-list').within(()=>{
