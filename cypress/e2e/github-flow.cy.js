@@ -1,10 +1,5 @@
 describe('GitHub workflows', ()=>{
 
-    // 'As a guest (not logged-in), when I search github for the term "create-react-app" from the landing page search input, I see:
-    //   - A count of matching results
-    //   - The facebook/create-create-app project as the first result
-    // - As a guest, when I click the "About" button in the landing page footer I am taken to the GitHub "About" page
-
     it('should navigate to Github', ()=>{
         cy.visit('https://www.github.com');
         cy.url().then($url =>{
@@ -45,8 +40,11 @@ describe('GitHub workflows', ()=>{
         cy.get('.footer').scrollIntoView();
     });
 
-    it.skip('should click on the "About" section', ()=>{
-
+    it('should click on the "About" section and land on the about page', ()=>{
+        cy.get('footer').within(()=>{
+            cy.get('a').contains('About').click();
+            cy.location('pathname', {timeout: 5000}).should('include', '/about');
+        });
     });
 
 
