@@ -5,11 +5,6 @@ describe('GitHub workflows', ()=>{
     //   - The facebook/create-create-app project as the first result
     // - As a guest, when I click the "About" button in the landing page footer I am taken to the GitHub "About" page
 
-    beforeEach(()=>{
-        // cy.viewport(3456,2234);
-        cy.viewport(2560,1600);
-    });
-
     it('should navigate to Github', ()=>{
         cy.visit('https://www.github.com');
         cy.url().then($url =>{
@@ -42,11 +37,16 @@ describe('GitHub workflows', ()=>{
         });
     });
 
-    it('should navigate back to the Github landing page', ()=>{
+    it('should navigate back to the Github landing page and scroll to the bottom', ()=>{
         cy.visit('https://www.github.com');
         cy.url().then($url =>{
             expect($url).to.eql('https://github.com/');
         })
+        cy.get('.footer').scrollIntoView();
+    });
+
+    it.skip('should click on the "About" section', ()=>{
+
     });
 
 
